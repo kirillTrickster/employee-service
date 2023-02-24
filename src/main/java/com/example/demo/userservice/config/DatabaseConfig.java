@@ -34,14 +34,14 @@ public class DatabaseConfig {
         dataSource.setPassword(dbPassword);
         return dataSource;
     }
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setJtaDataSource((DataSource) new HibernateJpaVendorAdapter());
-        entityManagerFactory.setJpaProperties(jpaProperties());
-        return entityManagerFactory;
+
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("com.example.demo.userservice.entity"); // пакеты сущностей
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        em.setJpaProperties(jpaProperties());
+        return em;
     }
 
     @Bean
@@ -51,11 +51,10 @@ public class DatabaseConfig {
         return transactionManager;
     }
 
-    private Properties jpaProperties(){
+    private Properties jpaProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         return properties;
-
     }
 }

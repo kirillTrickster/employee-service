@@ -15,23 +15,23 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebMvc
 @Configuration
 @EnableSwagger2
-@ComponentScan
+@ComponentScan(basePackages = {"com.example.demo.userservice.controller.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.userservice.controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
+                .addResourceLocations("resource/META-INF/");
 
         registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+                .addResourceLocations("resource/META-INF/webjars/");
     }
 }
