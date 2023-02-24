@@ -1,15 +1,17 @@
 package com.example.demo.userservice.model;
 
 import com.example.demo.userservice.entity.Gender;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.example.demo.userservice.entity.Role;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Data
@@ -41,6 +43,6 @@ public class UserDTO {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    // getters, setters, toString
+
 }
 
