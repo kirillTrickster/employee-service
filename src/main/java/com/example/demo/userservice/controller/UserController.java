@@ -1,5 +1,8 @@
 package com.example.demo.userservice.controller;
 
+import com.example.demo.userservice.model.UserDTO;
+import com.example.demo.userservice.model.UserSearchDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
