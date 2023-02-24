@@ -11,6 +11,7 @@ import javax.management.relation.Role;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserSearchDTO {
+
     private Role role;
 
     private String email;

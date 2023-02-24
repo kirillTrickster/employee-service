@@ -1,5 +1,6 @@
 package com.example.demo.userservice.controller;
 
+import com.example.demo.userservice.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

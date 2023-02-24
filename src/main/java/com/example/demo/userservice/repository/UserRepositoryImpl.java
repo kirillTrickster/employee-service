@@ -1,16 +1,10 @@
 package com.example.demo.userservice.repository;
 
 import com.example.demo.userservice.entity.User;
-import com.example.demo.userservice.dto.UserSearchDTO;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import com.example.demo.userservice.model.UserSearchDTO;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -19,11 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
+import jakarta.persistence.criteria.Predicate;
 
 @Repository
 @Transactional
-public class UserRepositoryImpl implements UserRepositoryCustom{
+public class UserRepositoryImpl implements UserRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -52,7 +46,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom{
                     builder.like(builder.lower(root.get("lastName")), "%" + searchDTO.getQuery().toLowerCase() + "%")));
         }
 
-        query.where(predicates.toArray(new Predicate[0]));
+        query.where(predicates.toArray(new Predicate[predicates.size()]));
 
         return entityManager.createQuery(query).getResultList();
     }

@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(basePackages = com.example.demo.userservice.repository)
+@EnableJpaRepositories(basePackages = "com.example.demo.userservice.repository" )
 public class DatabaseConfig {
     @Value("${spring.datasource.url}")
     private String dbUrl;
@@ -38,8 +38,8 @@ public class DatabaseConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setDataSource(com.example.demo.userservice.entity);
-        entityManagerFactory.setJtaDataSource(new HibernateJpaVendorAdapter());
+        entityManagerFactory.setDataSource(dataSource());
+        entityManagerFactory.setJtaDataSource((DataSource) new HibernateJpaVendorAdapter());
         entityManagerFactory.setJpaProperties(jpaProperties());
         return entityManagerFactory;
     }

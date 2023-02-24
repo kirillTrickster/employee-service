@@ -7,13 +7,10 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Table;
-import jakarta.persistence.Id;
-
-import javax.management.relation.Role;
+import org.hibernate.annotations.Tables;
 
 @Entity
-@Table(name = "users")
+@Table
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -47,7 +44,5 @@ public class User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    // constructors, getters, setters, toString
 }
 
