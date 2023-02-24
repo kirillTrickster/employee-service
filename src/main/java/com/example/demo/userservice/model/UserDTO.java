@@ -9,8 +9,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.example.demo.userservice.entity.Role;
 
-import javax.management.relation.Role;
 
 @Data
 @NoArgsConstructor
