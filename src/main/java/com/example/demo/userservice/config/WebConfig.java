@@ -1,3 +1,4 @@
+
 package com.example.demo.userservice.config;
 
 import org.springframework.context.annotation.Bean;
@@ -15,23 +16,25 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebMvc
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.example.demo.userservice.controller.controller"})
+@ComponentScan(basePackages = {"com.example.demo.userservice.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.demo.userservice.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.userservice.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("resource/META-INF/");
+                .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("resource/META-INF/webjars/");
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 }
+

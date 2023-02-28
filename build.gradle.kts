@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+	implementation ("org.springframework.kafka:spring-kafka:2.8.1")
+	implementation ("org.springframework.security:spring-security-core:5.6.1")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
