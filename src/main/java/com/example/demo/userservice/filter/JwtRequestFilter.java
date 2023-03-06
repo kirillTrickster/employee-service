@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+
+//Комментарий
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
